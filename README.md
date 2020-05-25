@@ -1,4 +1,4 @@
-# yyd-vue-cli4-mo
+# yyd-vue-cli4
 
 ## Project setup
 ```
