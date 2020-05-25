@@ -1,28 +1,39 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
+//首页
+const Home = () => import('views/Home/Home');
+
+//404页面
+const Page404 = () => import('views/Page404/Page404');
+
+//配置路由规则
+const routes = [{
+        path: '',
+        redirect: '/home',
+    },
+    //首页
+    {
+        path: '/home',
+        name: 'Home',
+        component: Home,
+        meta: {
+            title: '首页',
+        },
+    },
+    //404页面
+    {
+        path: '*',
+        name: 'Page404',
+        component: Page404,
+        meta: {
+            title: '404',
+        },
+    },
 ];
 
-const router = new VueRouter({
-  routes
+export default new VueRouter({
+    routes
 });
-
-export default router;

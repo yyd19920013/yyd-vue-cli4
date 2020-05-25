@@ -1,32 +1,55 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+  <div v-if="onOff" class="App" id="App">
+    <transition name="router-fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
+    <Loading :showLoading="isLoading" :showRefreshBt="showRefreshBt" :status="status" />
   </div>
 </template>
+<script>
+import Loading from './components/common/Loading';
+import { mapState } from 'vuex';
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  data() {
+    return {
+      onOff: true,
     }
-  }
+  },
+
+  computed: {
+    ...mapState({
+      isLoading(state) {
+        return state.isLoading;
+      },
+      showRefreshBt(state) {
+        return state.showRefreshBt;
+      },
+      status(state) {
+        return state.status;
+      },
+    })
+  },
+
+  created() {
+    //挂载刷新方法在window上
+    window.webviewRefresh = this.webviewRefresh;
+  },
+
+  methods: {
+    webviewRefresh() {
+      this.onOff = false;
+      this.$nextTick(() => {
+        this.onOff = true;
+      });
+    },
+  },
+
+  components: {
+    Loading,
+  },
 }
+</script>
+<style lang="scss">
+@import '~css/index.scss';
 </style>
