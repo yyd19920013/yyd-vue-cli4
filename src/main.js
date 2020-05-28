@@ -1,11 +1,19 @@
+/* eslint-disable */
+
 // import 'amfe-flexible';
+import 'core-js';
+import 'components/vux';
+import 'element-ui/lib/theme-chalk/index.css';
+import 'components/element';
+
 import App from 'src/App';
 import Vue from 'vue';
 import router from './router';
 import store from './store';
 
-import { AlertPlugin, ConfirmPlugin } from './VUX';
 import fastclick from 'fastclick';
+import * as filter from './filter';
+import { htmlFontSize } from 'js/yydjs';
 
 //处理点击延迟
 let hostname = window.location.hostname;
@@ -15,9 +23,10 @@ if (noNative) {
     fastclick.attach(document.body);
 }
 
-//调用插件
-Vue.use(AlertPlugin);
-Vue.use(ConfirmPlugin);
+//挂载过滤器
+for (let attr in filter) {
+    Vue.filter(attr, filter[attr]);
+}
 
 //路由改变之前显示loading
 router.beforeEach((to, from, next) => {
@@ -42,6 +51,8 @@ router.afterEach(() => {
     //关闭vux组件的遮罩
     vm.$vux.alert.hide();
     vm.$vux.confirm.hide();
+    //关闭element的遮罩
+    vm.$ele.message.closeAll();
 });
 
 //挂载到#app匹配的元素上
@@ -56,4 +67,9 @@ const vmEvent = new Vue({
     router,
 });
 
+//rem根据屏幕变化
+htmlFontSize();
+
+console.log(vm);
 export default vmEvent;
+/* eslint-disable no-new */
