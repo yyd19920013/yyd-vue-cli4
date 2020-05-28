@@ -5,9 +5,10 @@ import { cookie, lStore, sStore, alerts, strToJson, axios, axiosWrap, createStr 
 const URL = '/api'; //域名
 
 const API = (config) => {
-    config.method = 'post';
-    config.params = `post=${JSON.stringify(config.params)}`;
     config.url = URL + config.url;
+    config.method = config.method ? config.method : 'post';
+    config.code = 0;
+    config.params = `post=${JSON.stringify(config.params)}`;
     config.headers = {
         'token': '',
         'sign': '5736edc08324690890926ff7f831da52',
