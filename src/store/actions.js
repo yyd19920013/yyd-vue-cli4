@@ -1,5 +1,5 @@
 export default {
-    UPDARA_USERINFO({ commit, state }) {
+    UPDARA_USERINFO({ commit }) {
         commit({
             type: 'UPDARA_USERINFO',
             aaa: 1,

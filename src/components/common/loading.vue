@@ -48,7 +48,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '~css/public.scss';
+@import '~@/assets/css/public.scss';
 
 .Loading {
     position: fixed;

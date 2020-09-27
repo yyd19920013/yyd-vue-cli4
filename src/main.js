@@ -2,18 +2,18 @@
 
 // import 'amfe-flexible';
 import 'core-js';
-import 'components/vux';
+import '@/components/vux';
 import 'element-ui/lib/theme-chalk/index.css';
-import 'components/element';
+import '@/components/element';
 
-import App from 'src/App';
+import App from '@/App';
 import Vue from 'vue';
 import router from './router';
 import store from './store';
 
 import fastclick from 'fastclick';
 import * as filter from './filter';
-import { htmlFontSize } from 'js/yydjs';
+import { htmlFontSize } from '@/assets/js/yydjs';
 
 //处理点击延迟
 let hostname = window.location.hostname;
