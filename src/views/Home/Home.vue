@@ -2,7 +2,7 @@
     <div class="Home">
         首页
         <div class="text">
-            第一行文字
+            第一行文字1
         </div>
         <div class="time">
             {{'2020/5/28'|date}}
