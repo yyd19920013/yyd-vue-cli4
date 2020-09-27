@@ -1,4 +1,4 @@
-import { dateFormat0, dateFormat1, secondFormat0, getWeekName, getAge, toFixed0 } from '@/assets/js/yydjs.js';
+import { dateFormat0, dateFormat1, secondFormat0, getWeekName, getAge, toFixed0 } from 'js/yydjs.js';
 
 const date = (value, format) => {
     if (!value && value != 0) return;

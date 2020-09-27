@@ -25,7 +25,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '~@/assets/css/public.scss';
+@import '~css/public.scss';
 
 .Page404 {
     .text {

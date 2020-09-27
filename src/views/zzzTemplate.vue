@@ -27,7 +27,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '~@/assets/css/public.scss';
+@import '~css/public.scss';
 
 .wrapName {}
 </style>

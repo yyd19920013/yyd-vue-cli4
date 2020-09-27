@@ -1,7 +1,7 @@
 // JavaScript Document
 import md5 from 'md5';
 import axios from 'axios';
-import vm from '@/main';
+import vm from 'src/main';
 
 //ajax包装
 //支持回调函数和promise两种风格
@@ -319,7 +319,7 @@ function axiosWrap(config) {
 
     function changeLoading(bool) {
         try {
-            var store = import('@/store');
+            var store = import('store');
 
             store.then((data) => {
                 data.default.commit({
@@ -332,7 +332,7 @@ function axiosWrap(config) {
 
     function changeRefresh(bool, status) {
         try {
-            var store = import('@/store');
+            var store = import('store');
 
             store.then((data) => {
                 data.default.commit({

@@ -1,6 +1,6 @@
-import vm from '@/main.js';
+import vm from 'src/main.js';
 import md5 from 'md5';
-import { cookie, lStore, sStore, alerts, strToJson, axios, axiosWrap, createStr } from '@/assets/js/yydjs.js';
+import { cookie, lStore, sStore, alerts, strToJson, axios, axiosWrap, createStr } from 'js/yydjs.js';
 
 const URL = '/api'; //域名
 

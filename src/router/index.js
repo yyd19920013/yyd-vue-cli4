@@ -4,10 +4,10 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 //首页
-const home = () => import('@/views/home/home');
+const home = () => import('views/home/home');
 
 //404页面
-const page404 = () => import('@/views/page404/page404');
+const page404 = () => import('views/page404/page404');
 
 //配置路由规则
 const routes = [{

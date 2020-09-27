@@ -11,7 +11,7 @@
     </div>
 </template>
 <script>
-import { testAxios } from '@/services';
+import { testAxios } from 'services';
 
 export default {
     data() {
@@ -38,7 +38,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '~@/assets/css/public.scss';
+@import '~css/public.scss';
 
 .Home {
     .text {
