@@ -11,8 +11,6 @@
     </div>
 </template>
 <script>
-import { testAxios } from 'services';
-
 export default {
     data() {
         return {
@@ -26,7 +24,7 @@ export default {
 
     methods: {
         async getList() {
-            let res = await testAxios({ pageIndex: 1, pageSize: 10 });
+            let res = await this.$services.testAxios({ pageIndex: 1, pageSize: 10 });
 
             console.log(res);
         },

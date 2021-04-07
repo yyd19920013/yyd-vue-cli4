@@ -13,6 +13,7 @@ import store from './store';
 
 import fastclick from 'fastclick';
 import * as filter from './filter';
+import services from 'services';
 import { htmlFontSize } from 'js/yydjs';
 
 //处理点击延迟
@@ -27,6 +28,9 @@ if (noNative) {
 for (let attr in filter) {
     Vue.filter(attr, filter[attr]);
 }
+
+//挂载网络请求
+Vue.prototype.$services = services;
 
 //路由改变之前显示loading
 router.beforeEach((to, from, next) => {
