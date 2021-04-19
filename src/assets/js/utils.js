@@ -1740,47 +1740,34 @@ var lStore = new Store().init('localStorage');
 //sessionStorage操作
 var sStore = new Store().init('sessionStorage');
 
-//返回当前地址?后面的参数的json格式(用于submit提交的str='1'&str1='2'格式)
+//返回键值对的json格式(用于a=1&b=2转换成{a:1,b:2})
+//str（要转换的字符串）
 function strToJson(str) {
-    var str = str || window.location.search;
-    var reg = /&+/g;
-    var reg1 = /=+/g;
-
-    try {
-        if (str.match(/.+=/)) {
-            str = decodeURI(str);
-            str = str.replace('?', '');
-            str = str.replace(reg, '","');
-            str = str.replace(reg1, '":"');
-            str = '{"' + str + '"}';
-            str = JSON.parse(str);
-        } else {
-            str = {};
-        }
-    } catch (e) {
-        str = {};
-    }
-    return str;
-}
-
-//传入json，转换成带?的表单格式的url地址
-//json(要转换的对象)
-//arr(要删除json的key的数组)
-//href(要定制的href)
-function jsonToStr(json, arr, href) {
-    var str = '';
-    var json = json || {};
-    var arr = arr || [];
-    var href = href || (window.location.origin + window.location.pathname);
+    var search = window && window.location && window.location.search.replace('?', '');
+    var str = str || search || '';
+    var arr = str.split('&');
+    var json = {};
 
     for (var i = 0; i < arr.length; i++) {
-        delete json[arr[i]];
+        var arr1 = arr[i].split('=');
+        var key = arr1[0];
+        var value = arr1[1];
+
+        json[key] = value;
     }
+    return json;
+}
+
+//返回json的键值对格式(用于{a:1,b:2}转换成a=1&b=2)
+//json（要转换的json）
+function jsonToStr(json) {
+    var json = json || {};
+    var arr = [];
+
     for (var attr in json) {
-        str += attr + '=' + json[attr] + '&';
+        arr.push(attr + '=' + json[attr]);
     }
-    str = href + '?' + str.substr(0, str.length - 1);
-    return str;
+    return arr.join('&');
 }
 
 //正则匹配获取search参数
