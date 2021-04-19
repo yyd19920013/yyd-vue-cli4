@@ -17,13 +17,13 @@ export default {
     },
 
     mounted() {
-        console.log(this.query);
+
     },
 
     methods: {
-        async confirm(){
-            let res=await this.isConfirm('是否确定？');
-            if(!res)return;
+        async confirm() {
+            let res = await this.isConfirm('是否确定？');
+            if (!res) return;
 
             console.log('确定');
         },

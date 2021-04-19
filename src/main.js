@@ -14,7 +14,7 @@ import store from './store';
 import fastclick from 'fastclick';
 import * as filter from './filter';
 import services from 'services';
-import { htmlFontSize } from 'js/yydjs';
+import { htmlFontSize } from 'js/utils';
 
 import commonMixinPlugin from './plugins/commonMixinPlugin';
 

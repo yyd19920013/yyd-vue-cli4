@@ -1,12 +1,12 @@
 import Vue from 'vue';
-import { fileType, alerts } from 'js/yydjs';
+import { fileType, alerts } from 'js/utils';
 
 export default {
     install() {
         Vue.mixin({
             data() {
                 return {
-                    query: this.$route.query,
+
                 }
             },
             mounted() {

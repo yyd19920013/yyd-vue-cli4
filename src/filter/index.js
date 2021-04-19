@@ -1,4 +1,5 @@
-import { dateFormat0, dateFormat1, secondFormat0, getWeekName, getAge, toFixed0 } from 'js/yydjs.js';
+import Decimal from 'yyd-decimal';
+import { dateFormat0, dateFormat1, secondFormat0, getWeekName, getAge, toFixed0 } from 'js/utils';
 
 const date = (value, format) => {
     if (!value && value != 0) return;

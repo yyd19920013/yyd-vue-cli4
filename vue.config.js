@@ -4,7 +4,12 @@ const resolve = (dir) => {
 };
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const IS_DEV = process.env.NODE_ENV === 'development';
+const CONFIG_JSON = require('./src/services/config.js');
+const ENV = process.env.__ENV;
+const target = CONFIG_JSON[ENV || 'develop'].baseUrl;
 
+console.log(`当前运行环境：${ENV}`);
+console.log(`当前代理地址：${target}`);
 module.exports = { // 原来的 module.exports 代码赋值给变量 webpackConfig
     publicPath: './', //基本路径
     lintOnSave: false, //eslint校验
@@ -14,7 +19,7 @@ module.exports = { // 原来的 module.exports 代码赋值给变量 webpackConf
         open: true,
         proxy: {
             '/api': { //这里最好有一个 /
-                target: 'http://yangyd.cn', // 服务器端接口地址
+                target: '', // 服务器端接口地址
                 //如果要代理 websockets，配置这个参数
                 ws: false,
                 // 如果是https接口，需要配置这个参数
@@ -50,7 +55,13 @@ module.exports = { // 原来的 module.exports 代码赋值给变量 webpackConf
             .set('assets', resolve('src/assets'))
             .set('js', resolve('src/assets/js'))
             .set('css', resolve('src/assets/css'))
-            .set('images', resolve('src/assets/images'))
+            .set('images', resolve('src/assets/images'));
+        config
+            .plugin('define')
+            .tap(args => {
+                args[0].__ENV = JSON.stringify(process.env.__ENV);
+                return args;
+            });
     },
     css: {
         loaderOptions: {
