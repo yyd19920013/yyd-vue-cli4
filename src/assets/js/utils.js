@@ -350,10 +350,11 @@ function axiosWrap(config) {
         var url = (hostname == 'localhost' || hostname == '127.0.0.1' || hostname == '172.16.21.92') ? (config.url ? config.url : '/api') : '/';
         var method = config.method ? config.method.toLowerCase() : '';
         var paramsOrData = method == 'get' || method == 'delete' || config.urlJointParams ? 'params' : 'data';
+        var resultParams = !config.isForm ? config.params : jsonToStr(config.params);
         var configResult = {
             url: url,
             method: method,
-            [paramsOrData]: config.params,
+            [paramsOrData]: resultParams,
             headers: config.headers || {},
             timeout: config.timeout || 20000,
             responseType: config.responseType || 'json', //默认值是json，可选项 'arraybuffer', 'blob', 'document', 'json', 'text', 'stream'
@@ -374,6 +375,14 @@ function axiosWrap(config) {
                     changeLoading(false);
                     config.finally && config.finally(data);
 
+                    if (config.responseType == 'blob') {
+                        if (resolve && (Type(resolve) == 'function')) {
+                            return resolve(data);
+                        } else {
+                            config.success && config.success(data);
+                        }
+                        return;
+                    }
                     if (data.code == config.code) {
                         if (resolve && (Type(resolve) == 'function')) {
                             return resolve(data);
@@ -434,7 +443,7 @@ function axiosWrap(config) {
                 axiosResultFn(resolve, reject);
             });
         }
-    }
+    };
 
     if (all && all.apis && all.apis.length > 0) {
         var apisArr = [];

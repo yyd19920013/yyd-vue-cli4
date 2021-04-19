@@ -3,6 +3,7 @@ import md5 from 'md5';
 import { cookie, lStore, sStore, alerts, axios, axiosWrap } from 'js/utils';
 import CONFIG_JSON from 'services/config';
 
+const URL = '/api';
 const COMMON = CONFIG_JSON[__ENV || 'develop'];
 const context = require.context('./modules', true, /\.js$/);
 let modules = {};
@@ -11,7 +12,7 @@ context.keys().forEach((item) => {
     modules = Object.assign({}, modules, context(item));
 });
 const API = (config) => {
-    config.url = COMMON.baseUrl + config.url;
+    config.url = URL + config.url;
     config.method = config.method ? config.method : 'post';
     config.code = 0;
     config.params = `post=${JSON.stringify(config.params)}`;

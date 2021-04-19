@@ -3,11 +3,11 @@
     <transition name="router-fade" mode="out-in">
       <router-view></router-view>
     </transition>
-    <loading :showLoading="isLoading" :showRefreshBt="showRefreshBt" :status="status" />
+    <Loading :showLoading="isLoading" :showRefreshBt="showRefreshBt" :status="status" />
   </div>
 </template>
 <script>
-import loading from './components/common/loading';
+import Loading from './components/common/Loading';
 import { mapState } from 'vuex';
 
 export default {
@@ -46,7 +46,7 @@ export default {
   },
 
   components: {
-    loading,
+    Loading,
   },
 }
 </script>
