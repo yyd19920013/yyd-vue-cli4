@@ -6,6 +6,10 @@ import {
     TableColumn, //表格列
     Tabs, //选项卡
     TabPane, //选项窗口
+    Menu, //菜单
+    Submenu,
+    MenuItem, //菜单项目
+    MenuItemGroup, //菜单组
 
     Icon, //图标
     Button, //按钮
@@ -44,6 +48,10 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Tabs);
 Vue.use(TabPane);
+Vue.use(Menu);
+Vue.use(Submenu);
+Vue.use(MenuItem);
+Vue.use(MenuItemGroup);
 
 Vue.use(Icon);
 Vue.use(Button);
