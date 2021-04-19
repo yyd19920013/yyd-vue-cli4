@@ -16,6 +16,10 @@ import * as filter from './filter';
 import services from 'services';
 import { htmlFontSize } from 'js/yydjs';
 
+import commonMixinPlugin from './plugins/commonMixinPlugin';
+
+Vue.use(commonMixinPlugin);
+
 //处理点击延迟
 let hostname = window.location.hostname;
 let noNative = hostname != 'localhost' && hostname != '127.0.0.1' && hostname != '172.16.21.92';

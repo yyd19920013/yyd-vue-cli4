@@ -9,7 +9,7 @@
 export default {
     data() {
         return {
-            query: this.$route.query,
+
         }
     },
 

@@ -11,7 +11,7 @@ export default {
     },
 
     /*
-
+        使用示例：
     */
 
     props: {
