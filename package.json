@@ -76,6 +76,9 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not dead"
+    "not ie <= 8",
+    "iOS >= 6",
+    "Android > 4.1",
+    "Firefox > 20"
   ]
 }
