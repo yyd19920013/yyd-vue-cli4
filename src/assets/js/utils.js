@@ -347,7 +347,7 @@ function axiosWrap(config) {
     changeRefresh(false);
 
     function createAxios(config) {
-        var url = (hostname == 'localhost' || hostname == '127.0.0.1' || hostname == '172.16.21.92') ? (config.url ? config.url : '/api') : '/';
+        var url = config.url;
         var method = config.method ? config.method.toLowerCase() : '';
         var paramsOrData = method == 'get' || method == 'delete' || config.urlJointParams ? 'params' : 'data';
         var resultParams = !config.isForm ? config.params : jsonToStr(config.params);

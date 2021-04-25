@@ -3,8 +3,8 @@ import md5 from 'md5';
 import { cookie, lStore, sStore, alerts, axios, axiosWrap } from 'js/utils';
 import CONFIG_JSON from 'services/config';
 
-const URL = '/api';
 const COMMON = CONFIG_JSON[__ENV || 'develop'];
+const URL = ['localhost', '127.0.0.1'].includes(window.location.hostname) ? '/api' : COMMON.baseUrl; //本地环境用反向代理，线上环境用baseUrl，线上域名和请求地址一致用'/'
 const context = require.context('./modules', true, /\.js$/);
 let modules = {};
 
