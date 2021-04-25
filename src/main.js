@@ -59,8 +59,6 @@ router.afterEach(() => {
     //关闭vux组件的遮罩
     vm.$vux.alert.hide();
     vm.$vux.confirm.hide();
-    //关闭element的遮罩
-    vm.$ele.message.closeAll();
 });
 
 //挂载到#app匹配的元素上

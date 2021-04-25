@@ -22,6 +22,14 @@ export default {
 
     methods: {
         async confirm() {
+            this.$vux.confirm.show({
+  // 组件除show外的属性
+  onCancel () {
+    console.log(this) // 非当前 vm
+    console.log(_this) // 当前 vm
+  },
+  onConfirm () {}
+})
             let res = await this.isConfirm('是否确定？');
             if (!res) return;
 
