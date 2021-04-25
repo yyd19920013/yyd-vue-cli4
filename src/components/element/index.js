@@ -29,7 +29,9 @@ import {
     DatePicker, //日期选择器
     TimePicker, //日期时间选择器
     Upload, //上传文件
-    Dropdown, //下拉菜单
+    Dropdown, //下拉
+    DropdownMenu, //下拉菜单
+    DropdownItem, //下拉项目
     Dialog, //对话框
     Popover, //根据方向的弹出说明框
     Carousel, //轮播图
@@ -72,6 +74,8 @@ Vue.use(DatePicker);
 Vue.use(TimePicker);
 Vue.use(Upload);
 Vue.use(Dropdown);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
 Vue.use(Dialog);
 Vue.use(Popover);
 Vue.use(Carousel);
