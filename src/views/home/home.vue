@@ -1,5 +1,5 @@
 <template>
-    <div class="Home">
+    <div class="home">
         <div class="text">px转rem测试</div>
         <div class="time">
             时间格式化：{{'2020/5/28'|date}}
@@ -42,7 +42,7 @@ export default {
 <style lang="scss" scoped>
 @import '~css/public.scss';
 
-.Home {
+.home {
     .text {
         display: flex;
         border-top: 1px solid #ddd;
