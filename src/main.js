@@ -12,7 +12,7 @@ import router from './router';
 import store from './store';
 
 import fastclick from 'fastclick';
-import * as filter from './filter';
+import * as filters from './filters';
 import services from 'services';
 import { htmlFontSize } from 'js/utils';
 
@@ -29,8 +29,8 @@ if (noNative) {
 }
 
 //挂载过滤器
-for (let attr in filter) {
-    Vue.filter(attr, filter[attr]);
+for (let attr in filters) {
+    Vue.filter(attr, filters[attr]);
 }
 
 //挂载网络请求
