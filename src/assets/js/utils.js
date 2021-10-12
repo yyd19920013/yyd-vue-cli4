@@ -2564,6 +2564,37 @@ function controlBodyScroll(disableScroll, goTop) {
     }
 }
 
+//创建并在body中插入一个脚本
+//src（插入脚本的src）
+//endFn（插入脚本onload时回调函数，会回传一个参数，为true时表示第一次加载）
+function createScript(src, endFn) {
+    var src = src || '';
+    var oScript = document.createElement('script');
+    var currentScript = window[src] || oScript;
+
+    if (!document.getElementById(src)) {
+        oScript.id = src;
+        oScript.src = src;
+        bind(currentScript, 'load', function () {
+            currentScript.loaded = true;
+            endFn && endFn(true);
+        });
+        if (!window[src]) {
+            window[src] = oScript;
+        }
+        document.body.appendChild(window[src]);
+    } else {
+        if (!currentScript.loaded) {
+            bind(currentScript, 'load', function () {
+                currentScript.loaded = true;
+                endFn && endFn(false);
+            });
+        } else {
+            endFn && endFn(false);
+        }
+    }
+}
+
 //项目中用到的工具函数
 export {
     //常用第三方插件
@@ -2639,4 +2670,5 @@ export {
     webviewRefresh,
     hasPrevHistoryPageFn,
     controlBodyScroll,
+    createScript,
 };
