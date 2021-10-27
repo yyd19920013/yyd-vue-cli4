@@ -51,6 +51,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import 'https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css';
 @import '~css/index.scss';
 </style>
