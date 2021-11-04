@@ -21,9 +21,9 @@
     </div>
 </template>
 <script>
-import { Viewer } from 'photo-sphere-viewer';
-import CubemapAdapter from 'photo-sphere-viewer/dist/adapters/cubemap';
-import MarkersPlugin from 'photo-sphere-viewer/dist/plugins/markers';
+// import { Viewer } from 'photo-sphere-viewer';
+// import CubemapAdapter from 'photo-sphere-viewer/dist/adapters/cubemap';
+// import MarkersPlugin from 'photo-sphere-viewer/dist/plugins/markers';
 
 export default {
     data() {
@@ -35,30 +35,30 @@ export default {
 
     mounted() {
         //一张全景图
-        const viewer = new Viewer({
-            container: document.querySelector('#container'),
-            panorama: require('images/demo2.jpg'),
-            plugins: [
-                [MarkersPlugin, {
-                    markers: [{
-                        id: 'marker1',
-                        longitude: '0deg',
-                        latitude: '0deg',
-                        image: require('images/dot.png'),
-                        width: 50,
-                        height: 50,
-                        style: {
-                            backgroundColor: 'rgba(0, 0, 0, 0)',
-                            cursor: 'pointer'
-                        },
-                        // tooltip: {
-                        //     content: '重庆三因兴云 时刻为您服务',
-                        //     position: 'top center'
-                        // },
-                    }],
-                }],
-            ],
-        });
+        // const viewer = new Viewer({
+        //     container: document.querySelector('#container'),
+        //     panorama: require('images/demo2.jpg'),
+        //     plugins: [
+        //         [MarkersPlugin, {
+        //             markers: [{
+        //                 id: 'marker1',
+        //                 longitude: '0deg',
+        //                 latitude: '0deg',
+        //                 image: require('images/dot.png'),
+        //                 width: 50,
+        //                 height: 50,
+        //                 style: {
+        //                     backgroundColor: 'rgba(0, 0, 0, 0)',
+        //                     cursor: 'pointer'
+        //                 },
+        //                 // tooltip: {
+        //                 //     content: '重庆三因兴云 时刻为您服务',
+        //                 //     position: 'top center'
+        //                 // },
+        //             }],
+        //         }],
+        //     ],
+        // });
 
         //六张全景图
         // const viewer = new Viewer({
@@ -94,19 +94,19 @@ export default {
         //     ],
         // });
 
-        const markersPlugin = viewer.getPlugin(MarkersPlugin);
+        // const markersPlugin = viewer.getPlugin(MarkersPlugin);
 
-        markersPlugin.on('select-marker', (e, marker) => {
-            console.log('选择点：', marker);
-            this.dialogVisible = true;
-            markersPlugin.updateMarker({
-                id: marker.id,
-                image: require('images/dot.png'),
-            });
-            markersPlugin.gotoMarker(marker.id, 1000).then(() => {
+        // markersPlugin.on('select-marker', (e, marker) => {
+        //     console.log('选择点：', marker);
+        //     this.dialogVisible = true;
+        //     markersPlugin.updateMarker({
+        //         id: marker.id,
+        //         image: require('images/dot.png'),
+        //     });
+        //     markersPlugin.gotoMarker(marker.id, 1000).then(() => {
 
-            });
-        });
+        //     });
+        // });
     },
 
     methods: {

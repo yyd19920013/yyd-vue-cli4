@@ -6,18 +6,23 @@
         </div>
         <el-button type="primary" @click="confirm">弹出确定按钮</el-button>
         <el-button type="primary" @click="getList">请求接口数据</el-button>
+        <div>{{a.b}}</div>
     </div>
 </template>
 <script>
 export default {
     data() {
         return {
-
+            a: {},
         }
     },
 
-    mounted() {
+    created() {
+        this.a.b = 1;
+    },
 
+    mounted() {
+        this.a.b = 2;
     },
 
     methods: {
